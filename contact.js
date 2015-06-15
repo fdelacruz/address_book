@@ -17,12 +17,12 @@ Contact.createContact = function(str) {
 
 Contact.loadContacts = function(done) {
 	var jf = require('jsonfile');
-	
+
 	// long form
 	// jf.readFile('data.json', function(err, data) {
 	// 	done(err, data);
 	// });
-	
+
 	// short form
 	jf.readFile('data.json', done);
 };
@@ -30,6 +30,16 @@ Contact.loadContacts = function(done) {
 Contact.saveContacts = function(contacts, done) {
 	var jf = require('jsonfile');
 	jf.writeFile('data.json', contacts, done);
+};
+
+Contact.saveContact = function(contact, done) {
+	var _this = this;
+	
+	this.loadContacts(function(err, contacts) {
+		if (err) { return done(err); }
+		contacts.push(contact);
+		_this.saveContacts(contacts, done);
+	});
 };
 
 module.exports = Contact;
