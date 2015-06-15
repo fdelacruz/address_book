@@ -15,4 +15,16 @@ Contact.createContact = function(str) {
 	};
 };
 
+Contact.loadContacts = function(done) {
+	var jf = require('jsonfile');
+	
+	// long form
+	// jf.readFile('data.json', function(err, data) {
+	// 	done(err, data);
+	// });
+	
+	// short form
+	jf.readFile('data.json', done);
+};
+
 module.exports = Contact;
