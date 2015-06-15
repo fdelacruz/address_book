@@ -27,4 +27,9 @@ Contact.loadContacts = function(done) {
 	jf.readFile('data.json', done);
 };
 
+Contact.saveContacts = function(contacts, done) {
+	var jf = require('jsonfile');
+	jf.writeFile('data.json', contacts, done);
+};
+
 module.exports = Contact;
