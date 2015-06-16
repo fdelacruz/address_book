@@ -34,11 +34,23 @@ Contact.saveContacts = function(contacts, done) {
 
 Contact.saveContact = function(contact, done) {
 	var _this = this;
-	
+
 	this.loadContacts(function(err, contacts) {
 		if (err) { return done(err); }
 		contacts.push(contact);
 		_this.saveContacts(contacts, done);
+	});
+};
+
+Contact.findContacts = function(name, done) {
+	this.loadContacts(function(err, contacts) {
+		if (err) { return done(err); }
+
+		var foundContacts = contacts.filter(function(contact) {
+			return contact.name == name;
+		});	
+
+		done(err, foundContacts);
 	});
 };
 
