@@ -8,4 +8,9 @@ Util.getHomeDirectory = function() {
 	}
 };
 
+Util.getDataPath = function() {
+	var path = require('path'); 
+	return path.join(this.getHomeDirectory(), 'data.json');
+};
+
 module.exports = Util;
