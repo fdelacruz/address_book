@@ -1,6 +1,9 @@
 {
   "name": "address_book",
   "version": "1.0.0",
+  "bin": {
+    "contacts": "index.js"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {

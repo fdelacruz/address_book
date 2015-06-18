@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var Command = require('./command');
 
 function handleResult(err) {
