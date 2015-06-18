@@ -16,20 +16,19 @@ Contact.createContact = function(str) {
 };
 
 Contact.loadContacts = function(done) {
-	var jf = require('jsonfile');
+	var jf = require('jsonfile'),
+	util = require('./util'),
+	jsonPath = util.getDataPath();
 
-	// long form
-	// jf.readFile('data.json', function(err, data) {
-	// 	done(err, data);
-	// });
-
-	// short form
-	jf.readFile('data.json', done);
+	jf.readFile(jsonPath, done);
 };
 
 Contact.saveContacts = function(contacts, done) {
-	var jf = require('jsonfile');
-	jf.writeFile('data.json', contacts, done);
+	var jf = require('jsonfile'),
+	util = require('./util'),
+	jsonPath = util.getDataPath();
+	
+	jf.writeFile(jsonPath, contacts, done);
 };
 
 Contact.saveContact = function(contact, done) {
